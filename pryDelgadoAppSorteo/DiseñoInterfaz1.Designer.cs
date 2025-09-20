@@ -33,21 +33,24 @@
             lblFecha = new Label();
             lblParticipantes = new Label();
             txtNombre = new TextBox();
-            txtParticipantes = new TextBox();
             lstFecha = new DateTimePicker();
-            label1 = new Label();
+            lblTitulo = new Label();
+            mtbParticipantes = new MaskedTextBox();
+            cmdCancelar = new Button();
+            lstbResultados = new ListBox();
             SuspendLayout();
             // 
             // cmdIngresar
             // 
             cmdIngresar.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            cmdIngresar.Location = new Point(39, 263);
+            cmdIngresar.Location = new Point(39, 267);
             cmdIngresar.Margin = new Padding(3, 4, 3, 4);
             cmdIngresar.Name = "cmdIngresar";
             cmdIngresar.Size = new Size(143, 42);
             cmdIngresar.TabIndex = 0;
             cmdIngresar.Text = "Ingresar";
             cmdIngresar.UseVisualStyleBackColor = true;
+            cmdIngresar.Click += cmdIngresar_Click;
             // 
             // lblNombre
             // 
@@ -68,7 +71,6 @@
             lblFecha.Size = new Size(155, 28);
             lblFecha.TabIndex = 2;
             lblFecha.Text = "Fecha del sorteo";
-            //lblFecha.Click += lblFecha_Click;
             // 
             // lblParticipantes
             // 
@@ -88,16 +90,6 @@
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(334, 32);
             txtNombre.TabIndex = 4;
-            //txtNombre.TextChanged += txtNombre_TextChanged;
-            // 
-            // txtParticipantes
-            // 
-            txtParticipantes.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtParticipantes.Location = new Point(311, 187);
-            txtParticipantes.Margin = new Padding(3, 4, 3, 4);
-            txtParticipantes.Name = "txtParticipantes";
-            txtParticipantes.Size = new Size(257, 32);
-            txtParticipantes.TabIndex = 5;
             // 
             // lstFecha
             // 
@@ -109,24 +101,55 @@
             lstFecha.Size = new Size(334, 32);
             lstFecha.TabIndex = 7;
             // 
-            // label1
+            // lblTitulo
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(39, 21);
-            label1.Name = "label1";
-            label1.Size = new Size(167, 28);
-            label1.TabIndex = 8;
-            label1.Text = "Ingrese el sorteo";
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.Location = new Point(39, 21);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(167, 28);
+            lblTitulo.TabIndex = 8;
+            lblTitulo.Text = "Ingrese el sorteo";
+            // 
+            // mtbParticipantes
+            // 
+            mtbParticipantes.Location = new Point(294, 191);
+            mtbParticipantes.Mask = "99999";
+            mtbParticipantes.Name = "mtbParticipantes";
+            mtbParticipantes.Size = new Size(274, 27);
+            mtbParticipantes.TabIndex = 9;
+            mtbParticipantes.ValidatingType = typeof(int);
+            // 
+            // cmdCancelar
+            // 
+            cmdCancelar.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdCancelar.Location = new Point(234, 267);
+            cmdCancelar.Margin = new Padding(3, 4, 3, 4);
+            cmdCancelar.Name = "cmdCancelar";
+            cmdCancelar.Size = new Size(143, 42);
+            cmdCancelar.TabIndex = 10;
+            cmdCancelar.Text = "Cancelar";
+            cmdCancelar.UseVisualStyleBackColor = true;
+            cmdCancelar.Click += cmdCancelar_Click;
+            // 
+            // lstbResultados
+            // 
+            lstbResultados.FormattingEnabled = true;
+            lstbResultados.Location = new Point(39, 361);
+            lstbResultados.Name = "lstbResultados";
+            lstbResultados.Size = new Size(511, 124);
+            lstbResultados.TabIndex = 12;
             // 
             // DiseñoInterfaz1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(598, 347);
-            Controls.Add(label1);
+            ClientSize = new Size(605, 505);
+            Controls.Add(lstbResultados);
+            Controls.Add(cmdCancelar);
+            Controls.Add(mtbParticipantes);
+            Controls.Add(lblTitulo);
             Controls.Add(lstFecha);
-            Controls.Add(txtParticipantes);
             Controls.Add(txtNombre);
             Controls.Add(lblParticipantes);
             Controls.Add(lblFecha);
@@ -146,8 +169,10 @@
         private Label lblFecha;
         private Label lblParticipantes;
         private TextBox txtNombre;
-        private TextBox txtParticipantes;
         private DateTimePicker lstFecha;
-        private Label label1;
+        private Label lblTitulo;
+        private MaskedTextBox mtbParticipantes;
+        private Button cmdCancelar;
+        private ListBox lstbResultados;
     }
 }
